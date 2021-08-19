@@ -16,5 +16,6 @@ puts "The students of Vallains Academy"
 puts "_______________"
 students.each do |student|
     puts student
+end
 
 puts "Ovelall, we have #{students.count} great students"
