@@ -16,16 +16,16 @@ students = [
 
 puts "The students of Vallains Academy"
 puts "_______________"
-puts student[0]
-puts student[1]
-puts student[2]
-puts student[3]
-puts student[4]
-puts student[5]
-puts student[6]
-puts student[7]
-puts student[8]
-puts student[9]
-puts student[10]
+puts students[0]
+puts students[1]
+puts students[2]
+puts students[3]
+puts students[4]
+puts students[5]
+puts students[6]
+puts students[7]
+puts students[8]
+puts students[9]
+puts students[10]
 
 puts "Ovelall, we have #{student_count} great students"
