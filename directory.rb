@@ -51,7 +51,7 @@ def process(selection)
 end
 
 def save_students
-    file = File.opem("students.csv", "w")
+    file = File.open("students.csv", "w")
     @students.each do |student|
         student_data = [student[:name], student[:cohort]]
         csv_line = student_data.join(",")
