@@ -1,27 +1,5 @@
 @students = []
 
-def input_students
-    puts "Please enter the names of the students"
-    puts "To finish, just hit return twice"
-
-    students = []
-    name = gets.chomp
-
-    while !name.empty? do
-        students << {name: name, cohort: :november}
-        puts "Now we have #{students.count} students"
-        name = gets.chomp
-    end
-    students
-end
-
-def interactive_menu
-    loop do
-        print_menu
-        process(gets.chomp)
-    end
-end
-
 def print_menu
     puts "1. Input the students"
     puts "2. Show the students"
@@ -29,10 +7,11 @@ def print_menu
     puts "9. Exit"
 end
 
-def show_students
-    print_header
-    print_student_list
-    print_footer
+def interactive_menu
+    loop do
+        print_menu
+        process(gets.chomp)
+    end
 end
 
 def process(selection)
@@ -50,18 +29,28 @@ def process(selection)
     end
 end
 
-def save_students
-    file = File.open("students.csv", "w")
-    @students.each do |student|
-        student_data = [student[:name], student[:cohort]]
-        csv_line = student_data.join(",")
-        file.puts csv_line
+def input_students
+    puts "Please enter the names of the students"
+    puts "To finish, just hit return twice"
+
+    students = []
+    name = gets.chomp
+
+    while !name.empty? do
+        students << {name: name, cohort: :november}
+        puts "Now we have #{students.count} students"
+        name = gets.chomp
     end
-    file.close
+    students
 end
 
-    
-def print_header
+def show_students
+    print_header
+    print_student_list
+    print_footer
+end
+
+ def print_header
     puts "The students of Vallains Academy"
     puts "_______________"
 end
@@ -76,9 +65,14 @@ def print_footer(names)
     puts "Ovelall, we have #{names.count} great students"
 end
 
-students = input_students
-print_header
-print(students)
-print_footer(students)
+def save_students
+    file = File.open("students.csv", "w")
+    @students.each do |student|
+        student_data = [student[:name], student[:cohort]]
+        csv_line = student_data.join(",")
+        file.puts csv_line
+    end
+    file.close
+end
 
 interactive_menu
